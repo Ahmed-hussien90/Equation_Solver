@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -85,7 +86,17 @@ public class Home extends AppCompatActivity {
         baseAPI.setDebug(true);
         baseAPI.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
 
-        File extDir = Environment.getExternalStorageDirectory();
+        File extDir ;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+        {
+            extDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        }
+        else
+        {
+            extDir = Environment.getExternalStorageDirectory();
+        }
+
         File appDir = new File(extDir, "TessOCR");
         if (!appDir.isDirectory())
             appDir.mkdir();
