@@ -1,6 +1,7 @@
 package com.example.equationsolver;
 
 import android.app.ProgressDialog;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -18,6 +19,7 @@ import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
@@ -34,9 +36,9 @@ public class ResultActivity extends AppCompatActivity {
     AsyncTask<Void, Void, Void> copy = new copyTask();
     AsyncTask<Void, Void, Void> ocr = new ocrTask();
 
-    private File appDir;
 
     ProgressDialog ocrProgress;
+    private static final String DATA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/com.example.equationsolver/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,41 +69,41 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void copyAssets() {
-
-        File extDir;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            extDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        } else {
-            extDir = Environment.getExternalStorageDirectory();
-        }
-
-        appDir = new File(extDir, "TessOCR");
-        if (!appDir.isDirectory())
-            appDir.mkdir();
-        final File baseDir = new File(appDir, "tessdata");
-        if (!baseDir.isDirectory())
-            baseDir.mkdir();
-
-
+        AssetManager assetManager = getAssets();
+        String[] files = null;
         try {
-            String fileList[] = getAssets().list("");
-            for (String fileName : fileList) {
-                String pathToDataFile = baseDir + "/" + fileName;
-                if (!(new File(pathToDataFile)).exists()) {
-                    InputStream in = getAssets().open(fileName);
-                    OutputStream out = new FileOutputStream(pathToDataFile);
-                    byte[] buff = new byte[1024];
-                    int len;
-                    while ((len = in.read(buff)) > 0) {
-                        out.write(buff, 0, len);
-                    }
+            files = assetManager.list("trainneddata");
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
+        }
+        for(String filename : files) {
+            Log.i("files",filename);
+            InputStream in = null;
+            OutputStream out = null;
+            String dirout= DATA_PATH + "tessdata/";
+            File outFile = new File(dirout, filename);
+            if(!outFile.exists()) {
+                try {
+                    in = assetManager.open("trainneddata/"+filename);
+                    (new File(dirout)).mkdirs();
+                    out = new FileOutputStream(outFile);
+                    copyFile(in, out);
                     in.close();
+                    in = null;
+                    out.flush();
                     out.close();
+                    out = null;
+                } catch (IOException e) {
+                    Log.e("tag", "Error creating files", e);
                 }
             }
-        } catch (Exception e) {
-            Log.e("ss", e.getMessage());
+        }
+    }
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
         }
     }
 
@@ -111,7 +113,7 @@ public class ResultActivity extends AppCompatActivity {
         baseAPI.setDebug(true);
         baseAPI.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
 
-        boolean test = baseAPI.init(appDir.getPath(), "eng+equ"); //Equation training file
+        boolean test = baseAPI.init(DATA_PATH, "eng+equ"); //Equation training file
 
         baseAPI.setImage(bmp);
         String text = baseAPI.getUTF8Text();

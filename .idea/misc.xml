@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/layout/activity_binarzition.xml" value="0.1" />
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/layout/activity_home.xml" value="0.11474164133738601" />
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/layout/activity_result_acitivity.xml" value="0.11474164133738601" />
+        <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/layout/activity_rotate_and_crop.xml" value="0.1" />
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/mipmap-anydpi-v26/EquationSolver.xml" value="0.1" />
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/mipmap-anydpi-v26/EquationSolver_round.xml" value="0.1" />
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
