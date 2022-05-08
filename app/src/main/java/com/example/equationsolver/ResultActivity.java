@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -48,12 +49,19 @@ public class ResultActivity extends AppCompatActivity {
 
 
     ProgressDialog ocrProgress;
-    private static final String DATA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/com.example.equationsolver/";
+
+    private static  String DATA_PATH ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_acitivity);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath() + "/com.example.equationsolver/";
+        } else {
+            DATA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/com.example.equationsolver/";
+        }
 
         inputText = findViewById(R.id.textView1);
         imageView = findViewById(R.id.Image1);
@@ -115,6 +123,8 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void copyAssets() {
+
+
         AssetManager assetManager = getAssets();
         String[] files = null;
         try {
