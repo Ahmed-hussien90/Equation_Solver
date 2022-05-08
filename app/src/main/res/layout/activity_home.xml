@@ -20,29 +20,30 @@
                 android:id="@+id/scanLayout"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:background="#FF5733"
-                android:clickable="true">
+                android:layout_marginTop="20dp"
+                android:background="@drawable/list_back"
+                android:backgroundTint="#FF5733"
+                android:clickable="true"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icgallery"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    />
+                    android:layout_marginLeft="7dp"
+                    android:src="@drawable/icgallery" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Scan Formula and Solve"
-                    android:layout_toRightOf="@id/imageView2"
-                    android:layout_marginLeft="22dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
                     android:layout_centerVertical="true"
-                    />
+                    android:layout_marginLeft="22dp"
+                    android:layout_toRightOf="@id/imageView2"
+                    android:text="Scan Formula and Solve"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 
@@ -51,30 +52,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:background="#C70039"
-                android:clickable="true">
+                android:background="@drawable/list_back"
+                android:backgroundTint="#C70039"
+                android:clickable="true"
+                android:orientation="horizontal">
 
 
-            <ImageView
+                <ImageView
                     android:id="@+id/imageView0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/calculator1"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="7dp"
+                    android:src="@mipmap/calc1"
+
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="write Formula and Solve"
-                    android:layout_toRightOf="@id/imageView0"
-                    android:layout_marginLeft="22dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
                     android:layout_centerVertical="true"
-                    />
+                    android:layout_marginLeft="22dp"
+                    android:layout_toRightOf="@id/imageView0"
+                    android:text="write Formula and Solve"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 

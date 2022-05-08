@@ -3,12 +3,16 @@ package com.example.equationsolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,7 +37,6 @@ public class RotateAndCrop extends AppCompatActivity implements View.OnClickList
         cropImageView = findViewById(R.id.cropImageView);
         rotateL = findViewById(R.id.rotate_left);
         rotateR = findViewById(R.id.rotate_right);
-
 
         Bundle extras = getIntent().getExtras();
         Uri uri = Uri.parse(extras.getString("imgUri"));
@@ -69,5 +72,7 @@ public class RotateAndCrop extends AppCompatActivity implements View.OnClickList
         }
 
     }
+
+
 
 }

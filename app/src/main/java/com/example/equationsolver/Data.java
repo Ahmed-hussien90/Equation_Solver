@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "data")
 public class Data {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int Did;
 
     @ColumnInfo(name = "input_text")
@@ -17,6 +17,12 @@ public class Data {
 
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] image;
+
+    public Data(String inputText, String solutionText, byte[] image) {
+        this.inputText = inputText;
+        this.solutionText = solutionText;
+        this.image = image;
+    }
 
     public int getDid() {
         return Did;
