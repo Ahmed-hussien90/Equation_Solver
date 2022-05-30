@@ -1,6 +1,10 @@
 package com.example.equationsolver;
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -12,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import es.dmoral.toasty.Toasty;
 import io.reactivex.CompletableObserver;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -42,6 +48,8 @@ public class ResultActivity extends AppCompatActivity {
     private LinearLayout inputLayout;
     private LinearLayout resLayout;
     private Button saveBtn;
+    private Button shareBtn;
+    private ImageButton copyBtn;
 
 
     AsyncTask<Void, Void, Void> copy = new copyTask();
@@ -50,7 +58,7 @@ public class ResultActivity extends AppCompatActivity {
 
     ProgressDialog ocrProgress;
 
-    private static  String DATA_PATH ;
+    private static String DATA_PATH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +77,8 @@ public class ResultActivity extends AppCompatActivity {
         resLayout = findViewById(R.id.resLayout);
         inputLayout = findViewById(R.id.inputLayout);
         saveBtn = findViewById(R.id.saveBtn);
+        shareBtn = findViewById(R.id.shareBtn);
+        copyBtn = findViewById(R.id.copyBtn);
         resLayout.setVisibility(View.GONE);
         inputLayout.setVisibility(View.GONE);
         saveBtn.setVisibility(View.GONE);
@@ -103,7 +113,7 @@ public class ResultActivity extends AppCompatActivity {
                             public void onComplete() {
                                 ResultActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        Toast.makeText(ResultActivity.this, "Saved ✔ ", Toast.LENGTH_SHORT).show();
+                                        Toasty.success(ResultActivity.this, " Saved ", Toast.LENGTH_SHORT, true).show();
                                     }
                                 });
                             }
@@ -112,7 +122,7 @@ public class ResultActivity extends AppCompatActivity {
                             public void onError(Throwable e) {
                                 ResultActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        Toast.makeText(ResultActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                        Toasty.error(ResultActivity.this, "Failed", Toast.LENGTH_SHORT, true).show();
                                     }
                                 });
                             }
@@ -120,10 +130,48 @@ public class ResultActivity extends AppCompatActivity {
 
             }
         });
+
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+
+                intent.setType("text/plain");
+
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Share solution");
+
+                String shareText = "problem : " + inputText.getText().toString() + "\n" + "solution : " + solText.getText().toString();
+
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+
+                startActivity(Intent.createChooser(intent, "Share"));
+            }
+        });
+
+        copyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int sdk = android.os.Build.VERSION.SDK_INT;
+                if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                    android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboard.setText(solText.getText().toString());
+                } else {
+                    android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("simple text", solText.getText().toString());
+                    clipboard.setPrimaryClip(clip);
+                }
+
+                Toasty.success(ResultActivity.this, " Copied ", Toast.LENGTH_SHORT, true).show();
+
+
+            }
+        });
     }
 
-    private void copyAssets() {
 
+    private void copyAssets() {
 
         AssetManager assetManager = getAssets();
         String[] files = null;
