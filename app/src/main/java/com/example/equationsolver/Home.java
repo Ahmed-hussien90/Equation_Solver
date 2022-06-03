@@ -3,6 +3,7 @@ package com.example.equationsolver;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import java.util.List;
 public class Home extends AppCompatActivity {
 
     private RelativeLayout scanLayout;
+    private  RelativeLayout formulaLayout;
 
     private Uri outputFileUri;
 
@@ -85,6 +87,16 @@ public class Home extends AppCompatActivity {
                 selectImage();
             }
         });
+
+        formulaLayout = findViewById(R.id.WFormula);
+        formulaLayout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 startActivity(new Intent(getBaseContext(),Calculate.class));
+
+            }
+        });
+
 
     }
 

@@ -25,15 +25,16 @@ public class History extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.dataRecyclar);
 
-        final equationsAdapter adapter = new equationsAdapter();
+
+        AppDatabase db = AppDatabase.getInstance(this);
+        DataDao dataDao = db.dataDao();
+
+        final equationsAdapter adapter = new equationsAdapter(dataDao , this);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
-
-        AppDatabase db = AppDatabase.getInstance(this);
-        DataDao dataDao = db.dataDao();
 
         dataDao.getAll().subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -58,4 +59,5 @@ public class History extends AppCompatActivity {
                 });
 
     }
+
 }

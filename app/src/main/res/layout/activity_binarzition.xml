@@ -17,11 +17,12 @@
             android:text="Enhance"
             android:textSize="13sp"
             />
-        <SeekBar
+        <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/umbralization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="50"/>
+            android:max="50"
+            style="@style/MySeekBar"/>
     </LinearLayout>
 
     <ImageView
@@ -38,7 +39,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/pink"/>
 
 
 

@@ -30,8 +30,14 @@
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/input_background.xml" value="0.1" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/list_back.xml" value="0.1" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/res_background.xml" value="0.1" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_binarzition.xml" value="0.21" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_calculate.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_home.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_main.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_result_acitivity.xml" value="0.18" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_rotate_and_crop.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/data_list.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/menu/navigation_menu.xml" value="0.24791666666666667" />
       </map>
     </option>
   </component>

@@ -23,6 +23,6 @@ interface DataDao {
     @Insert
     Completable insertAll(Data... data);
 
-    @Delete
-    Completable delete(Data data);
+    @Query("DELETE FROM data WHERE Did = :id")
+    void delete(int id);
 }

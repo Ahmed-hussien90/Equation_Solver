@@ -36,7 +36,7 @@ import java.io.OutputStream;
 
 public class Binarzition extends AppCompatActivity implements View.OnClickListener, AppCompatSeekBar.OnSeekBarChangeListener {
     private ImageView img;
-    private SeekBar seekBar;
+    private AppCompatSeekBar seekBar;
     private Pix pix;
     private FloatingActionButton fab;
     public static Bitmap umbralization;
