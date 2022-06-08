@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.EquationSolver" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink</item>
-        <item name="colorPrimaryVariant">@color/pink</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -15,9 +15,9 @@
     </style>
 
     <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
-        <item name="android:progressBackgroundTint">#f4511e</item>
-        <item name="android:progressTint">#388e3c</item>
-        <item name="android:thumbTint">#c51162</item>
+        <item name="android:progressBackgroundTint">#5D5FDF</item>
+        <item name="android:progressTint">#3D1D66</item>
+        <item name="android:thumbTint">#3D1D66</item>
     </style>
 
 </resources>

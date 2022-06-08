@@ -96,8 +96,7 @@
                 android:layout_margin="7dp"
                 android:layout_marginTop="10dp"
                 android:background="#23D51D"
-                android:src="@drawable/ic_baseline_content_copy_32"
-                android:textColor="@color/pink" />
+                android:src="@drawable/ic_baseline_content_copy_32" />
 
 
         </LinearLayout>
@@ -118,7 +117,7 @@
                 android:background="@drawable/button_shape"
                 android:drawableLeft="@drawable/ic_baseline_save_24"
                 android:text="Save"
-                android:textColor="@color/pink"
+                android:textColor="@color/blue"
                 android:textSize="15sp"
                 app:backgroundTint="@null" />
 
@@ -131,7 +130,7 @@
                 android:background="@drawable/button_shape"
                 android:drawableLeft="@drawable/ic_baseline_send_24"
                 android:text="Share"
-                android:textColor="@color/pink"
+                android:textColor="@color/blue"
                 android:textSize="15sp"
                 app:backgroundTint="@null" />
 

@@ -1,6 +1,8 @@
 package com.example.equationsolver;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,7 +26,6 @@ import com.ramotion.paperonboarding.listeners.PaperOnboardingOnRightOutListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
 
             }
+
         });
 
 
@@ -77,19 +79,35 @@ public class MainActivity extends AppCompatActivity {
         // prepare data
         PaperOnboardingPage scr1 = new PaperOnboardingPage("Scan",
                 "Use MathSolver app to Scan a tricky problem. You can also manually input problems using our smart calculator",
-                Color.parseColor("#DC143C"), R.mipmap.ic_scan, R.drawable.ic_baseline_add_a_photo_24);
+                Color.parseColor("#3D1D66"), R.mipmap.ic_scan, R.drawable.ic_baseline_add_a_photo_24);
         PaperOnboardingPage scr2 = new PaperOnboardingPage("Solve It",
                 "get solutions for many problems",
-                Color.parseColor("#DC143C"), R.mipmap.ic_solve, R.drawable.ic_baseline_done_24);
+                Color.parseColor("#3D1D66"), R.mipmap.ic_solve, R.drawable.ic_baseline_done_24);
         PaperOnboardingPage scr3 = new PaperOnboardingPage("Save & share",
                 "Save the solution and share it as a text",
-                Color.parseColor("#DC143C"), R.mipmap.ic_share, R.drawable.ic_baseline_share_24);
+                Color.parseColor("#3D1D66"), R.mipmap.ic_share, R.drawable.ic_baseline_share_24);
 
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(scr1);
         elements.add(scr2);
         elements.add(scr3);
         return elements;
+
+    }
+
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if (!sharedpreferences.getBoolean("yes", false)) {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean("yes", Boolean.TRUE);
+            editor.apply();
+        } else {
+            Intent intent = new Intent(this,Home.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
 }

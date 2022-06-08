@@ -51,6 +51,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
         android:src="@drawable/ic_done_white_24dp"
-        app:backgroundTint="@color/pink" />
+        app:backgroundTint="@color/blue" />
 
 </RelativeLayout>
