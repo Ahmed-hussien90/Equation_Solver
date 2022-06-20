@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.equationsolver.solver.Solver;
 import com.googlecode.tesseract.android.TessBaseAPI;
+import com.nishant.math.MathView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -50,7 +51,7 @@ public class ResultActivity extends AppCompatActivity {
     private Button saveBtn;
     private Button shareBtn;
     private ImageButton copyBtn;
-
+    private MathView mathView;
 
     AsyncTask<Void, Void, Void> copy = new copyTask();
     AsyncTask<Void, Void, Void> ocr = new ocrTask();
@@ -82,6 +83,7 @@ public class ResultActivity extends AppCompatActivity {
         resLayout.setVisibility(View.GONE);
         inputLayout.setVisibility(View.GONE);
         saveBtn.setVisibility(View.GONE);
+        mathView = findViewById(R.id.math_view);
         ocrProgress = new ProgressDialog(ResultActivity.this);
         ocrProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         ocrProgress.setIndeterminate(true);

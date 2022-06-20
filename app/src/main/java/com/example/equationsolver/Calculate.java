@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -43,6 +44,7 @@ public class Calculate extends AppCompatActivity {
         solveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editFormula.onEditorAction(EditorInfo.IME_ACTION_DONE);
                 String input = editFormula.getText().toString();
                 Solver solver = new Solver();
                 String res = solver.parseString(input);

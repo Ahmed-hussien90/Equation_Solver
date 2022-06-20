@@ -79,13 +79,13 @@ public class MainActivity extends AppCompatActivity {
         // prepare data
         PaperOnboardingPage scr1 = new PaperOnboardingPage("Scan",
                 "Use MathSolver app to Scan a tricky problem. You can also manually input problems using our smart calculator",
-                Color.parseColor("#3D1D66"), R.mipmap.ic_scan, R.drawable.ic_baseline_add_a_photo_24);
+                Color.parseColor("#3D1D66"), R.mipmap.scanico1, R.drawable.ic_baseline_add_a_photo_24);
         PaperOnboardingPage scr2 = new PaperOnboardingPage("Solve It",
                 "get solutions for many problems",
-                Color.parseColor("#3D1D66"), R.mipmap.ic_solve, R.drawable.ic_baseline_done_24);
+                Color.parseColor("#3D1D66"), R.mipmap.solve, R.drawable.ic_baseline_done_24);
         PaperOnboardingPage scr3 = new PaperOnboardingPage("Save & share",
                 "Save the solution and share it as a text",
-                Color.parseColor("#3D1D66"), R.mipmap.ic_share, R.drawable.ic_baseline_share_24);
+                Color.parseColor("#3D1D66"), R.mipmap.sharef, R.drawable.ic_baseline_share_24);
 
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(scr1);

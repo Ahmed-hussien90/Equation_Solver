@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:mytest="http://schemas.android.com/apk/res-auto"
     tools:ignore="HardcodedText">
 
-    <item
-        android:id="@+id/nav_account"
-        android:title="My Account" />
-
-    <item
-        android:id="@+id/nav_settings"
-        android:title="Settings" />
-
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout" />
 
     <item
         android:id="@+id/nav_history"
@@ -23,6 +11,17 @@
         android:showAsAction="always"
         mytest:showAsAction="always"
         tools:ignore="AppCompatResource"
+        android:icon="@mipmap/saved"
         />
+
+    <item
+        android:id="@+id/nav_contact"
+        android:title="Contact us"
+        android:icon="@drawable/ic_baseline_mail_outline_24"/>
+
+    <item
+        android:id="@+id/nav_help"
+        android:title="Help"
+        android:icon="@drawable/ic_baseline_help_outline_24"/>
 
 </menu>

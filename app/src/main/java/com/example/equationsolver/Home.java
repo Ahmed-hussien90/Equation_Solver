@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -31,10 +32,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements OnClickListener {
 
     private RelativeLayout scanLayout;
-    private  RelativeLayout formulaLayout;
+    private RelativeLayout formulaLayout;
+    private RelativeLayout historyLayout;
 
     private Uri outputFileUri;
 
@@ -51,10 +53,36 @@ public class Home extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
+
+        scanLayout = findViewById(R.id.scanLayout);
+        scanLayout.setOnClickListener(this);
+
+        formulaLayout = findViewById(R.id.WFormula);
+        formulaLayout.setOnClickListener(this);
+
+        historyLayout = findViewById(R.id.historBtn);
+        historyLayout.setOnClickListener(this);
+
         navigationView.getMenu().findItem(R.id.nav_history).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 startActivity(new Intent(getBaseContext(), History.class));
+                return false;
+            }
+        });
+
+        navigationView.getMenu().findItem(R.id.nav_contact).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"Ahmed.hs9090@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "math solver app");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(Home.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
                 return false;
             }
         });
@@ -78,24 +106,6 @@ public class Home extends AppCompatActivity {
                         1);
             }
         }
-
-        scanLayout = findViewById(R.id.scanLayout);
-        scanLayout.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                selectImage();
-            }
-        });
-
-        formulaLayout = findViewById(R.id.WFormula);
-        formulaLayout.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                 startActivity(new Intent(getBaseContext(),Calculate.class));
-
-            }
-        });
 
 
     }
@@ -178,4 +188,21 @@ public class Home extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.historBtn:
+                startActivity(new Intent(getBaseContext(), History.class));
+                break;
+            case R.id.WFormula:
+                startActivity(new Intent(getBaseContext(), Calculate.class));
+                break;
+            case R.id.scanLayout:
+                selectImage();
+                break;
+
+        }
+
+    }
 }

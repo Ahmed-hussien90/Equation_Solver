@@ -6,30 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Calculate">
 
-    <TextView
-        android:id="@+id/texta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Write Formula And Solve"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/blue"
-        android:fontFamily="sans-serif-black"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="15dp"
-        />
 
     <EditText
         android:id="@+id/formulaText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:gravity="center"
-        android:layout_below="@+id/texta"
+        android:background="@drawable/custom_edittext"
         />
 
     <Button
@@ -38,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
         android:layout_margin="50dp"
         android:text="solve"
         android:gravity="center"

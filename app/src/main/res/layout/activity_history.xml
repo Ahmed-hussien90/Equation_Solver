@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".History">
 
+    <TextView
+        android:id="@+id/textViewNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="no saved history"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/dataRecyclar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dataRecyclar"
         android:layout_width="match_parent"

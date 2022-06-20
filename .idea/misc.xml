@@ -24,7 +24,10 @@
         <entry key="..\:/Users/20114/AndroidStudioProjects/Equation_Solver/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/button_shape.xml" value="0.1" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/custom_edittext.xml" value="0.1135" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/edittext_style.xml" value="0.1135" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/gradient.xml" value="0.1135" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.1135" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1135" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1135" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1" />
@@ -38,11 +41,13 @@
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_history.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_home.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_main.xml" value="0.12552083333333333" />
-        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_result_acitivity.xml" value="0.18" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_result_acitivity.xml" value="0.33" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_rotate_and_crop.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/activity_splash_screen.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/data_list.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/layout/nav_header.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/menu/navigation_menu.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/20114/StudioProjects/Equation_Solver/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1135" />
       </map>
     </option>
   </component>

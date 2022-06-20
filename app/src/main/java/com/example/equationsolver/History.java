@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 public class History extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private TextView textView;
 
 
     @Override
@@ -24,6 +27,7 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         recyclerView = findViewById(R.id.dataRecyclar);
+        textView = findViewById(R.id.textViewNo);
 
 
         AppDatabase db = AppDatabase.getInstance(this);
@@ -35,6 +39,7 @@ public class History extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
+
 
         dataDao.getAll().subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -49,6 +54,11 @@ public class History extends AppCompatActivity {
 
                         adapter.setList(data);
                         adapter.notifyDataSetChanged();
+                        if(data.isEmpty()){
+                            textView.setVisibility(View.VISIBLE);
+                        }else {
+                            textView.setVisibility(View.GONE);
+                        }
 
                     }
 

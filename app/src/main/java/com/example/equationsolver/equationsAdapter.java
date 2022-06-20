@@ -55,8 +55,6 @@ public class equationsAdapter extends RecyclerView.Adapter<equationsAdapter.equa
                     public void run() {
                         dataDao.delete(itemsArrayList.get(i).getDid());
                         itemsArrayList.remove(i);
-                        Toasty.success(context, " deleted ", Toast.LENGTH_SHORT, true).show();
-
                         ((Activity)context).runOnUiThread(new Runnable() {
 
                             @Override
@@ -64,6 +62,8 @@ public class equationsAdapter extends RecyclerView.Adapter<equationsAdapter.equa
                                 notifyDataSetChanged();
                                 notifyItemRemoved(i);
                                 notifyItemRangeChanged(i, itemsArrayList.size());
+                                Toasty.success(context, " deleted ", Toast.LENGTH_SHORT, true).show();
+
                             }
                         });
 

@@ -50,7 +50,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_done_white_24dp"
-        app:backgroundTint="@color/blue" />
+        app:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue"
+        android:src="@drawable/ic_baseline_done_24"
+        app:tint="@color/white"
+        />
 
 </RelativeLayout>

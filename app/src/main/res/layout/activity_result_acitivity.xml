@@ -13,10 +13,11 @@
         <ImageView
             android:id="@+id/Image1"
             android:layout_width="wrap_content"
-            android:layout_height="400px"
+            android:layout_height="350px"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_margin="7dp"
+            android:padding="4dp"
             android:background="@drawable/button_shape"
             android:src="@mipmap/ic_launcher" />
 
@@ -24,28 +25,21 @@
             android:id="@+id/inputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/input_background"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Input"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_margin="7dp"
                 android:layout_marginBottom="5dp"
                 android:text="Result Here"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -55,13 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/res_background"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="14"
+                android:layout_weight="13"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -71,8 +67,9 @@
                     android:layout_gravity="center"
                     android:fontFamily="monospace"
                     android:text="Solution"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_margin="5dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -80,22 +77,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Result Here"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20dp" />
+
+
+                <com.nishant.math.MathView
+                    android:id="@+id/math_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#21AE1C"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:visibility="gone"
+                    />
+
             </LinearLayout>
 
             <ImageButton
                 android:id="@+id/copyBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="7dp"
                 android:layout_marginTop="10dp"
-                android:background="#23D51D"
+                android:background="#21AE1C"
                 android:src="@drawable/ic_baseline_content_copy_32" />
 
 
@@ -112,7 +122,7 @@
                 android:id="@+id/saveBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_shape"
                 android:drawableLeft="@drawable/ic_baseline_save_24"
@@ -125,7 +135,7 @@
                 android:id="@+id/shareBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_shape"
                 android:drawableLeft="@drawable/ic_baseline_send_24"
