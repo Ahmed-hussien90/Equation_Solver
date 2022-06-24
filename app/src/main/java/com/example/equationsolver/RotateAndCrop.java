@@ -58,11 +58,12 @@ public class RotateAndCrop extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onCropImageComplete(CropImageView view, CropImageView.CropResult result) {
                     croppedImage = result.getBitmap();
-                    Intent intent = new Intent(RotateAndCrop.this, Binarzition.class);
-                    startActivity(intent);
                 }
             });
             cropImageView.getCroppedImageAsync();
+
+            Intent intent = new Intent(RotateAndCrop.this, Binarzition.class);
+            startActivity(intent);
 
         } else if (view.getId() == R.id.rotate_left) {
             cropImageView.rotateImage(-90);

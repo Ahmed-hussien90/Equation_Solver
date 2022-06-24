@@ -52,6 +52,9 @@ public class Binarzition extends AppCompatActivity implements View.OnClickListen
         img =  findViewById(R.id.croppedImage);
         fab =  findViewById(R.id.nextStep);
         fab.setOnClickListener(this);
+        if(RotateAndCrop.croppedImage == null){
+            System.out.println("AAAA BITMAP NULL");
+        }
         pix = com.googlecode.leptonica.android.ReadFile.readBitmap(RotateAndCrop.croppedImage);
         pix8 = Convert.convertTo8(pix);
 
