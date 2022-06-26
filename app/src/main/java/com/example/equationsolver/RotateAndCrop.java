@@ -60,8 +60,15 @@ public class RotateAndCrop extends AppCompatActivity implements View.OnClickList
                     croppedImage = result.getBitmap();
                 }
             });
+            croppedImage = cropImageView.getCroppedImage();
             cropImageView.getCroppedImageAsync();
 
+            if(croppedImage == null){
+                System.out.println("Croop NUUuuuuLLLL");
+            }else{
+                System.out.println("Croop nooooooT NUUuuuuLLLL");
+
+            }
             Intent intent = new Intent(RotateAndCrop.this, Binarzition.class);
             startActivity(intent);
 

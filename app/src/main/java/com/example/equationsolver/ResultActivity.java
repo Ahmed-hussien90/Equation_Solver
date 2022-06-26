@@ -65,9 +65,9 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result_acitivity);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath() + "/com.example.equationsolver/";
+            DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath() + "/com.example.equationsolverd/";
         } else {
-            DATA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/com.example.equationsolver/";
+            DATA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/com.example.equationsolverd/";
         }
 
         inputText = findViewById(R.id.textView1);
@@ -285,6 +285,11 @@ public class ResultActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            if(Binarzition.umbralization == null){
+                System.out.println("RESULT NUUuuuuLLLL");
+            }else{
+                System.out.println("RESULT not null NUUuuuuLLLL");
+            }
             recognizeText(Binarzition.umbralization);
             solve();
             return null;
