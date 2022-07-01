@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,9 +23,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.equationsolver.solver.Solver;
+import com.google.android.material.navigation.NavigationView;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
@@ -50,6 +55,10 @@ public class ResultActivity extends AppCompatActivity {
     private Button saveBtn;
     private Button shareBtn;
     private ImageButton copyBtn;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+
+
 
     AsyncTask<Void, Void, Void> copy = new copyTask();
     AsyncTask<Void, Void, Void> ocr = new ocrTask();
@@ -87,6 +96,39 @@ public class ResultActivity extends AppCompatActivity {
         ocrProgress.setCancelable(false);
         ocrProgress.setTitle("OCR");
         ocrProgress.setMessage("Extracting Equations, please wait");
+
+        drawerLayout = findViewById(R.id.drawerlayout2);
+        NavigationView navigationView = findViewById(R.id.nav_view2);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView.getMenu().findItem(R.id.nav_history).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(getBaseContext(), History.class));
+                return false;
+            }
+        });
+
+        navigationView.getMenu().findItem(R.id.nav_contact).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"Ahmed.hs9090@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "math solver app");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(ResultActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
+
 
         imageView.setImageBitmap(Binarzition.umbralization);
 
@@ -294,6 +336,17 @@ public class ResultActivity extends AppCompatActivity {
             solve();
             return null;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+
     }
 
 

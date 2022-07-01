@@ -57,7 +57,7 @@ public class QuadraticEQ {
         if (d > 0.0) {
             double r1 = (-b + Math.pow(d, 0.5)) / (2.0 * a);
             double r2 = (-b - Math.pow(d, 0.5)) / (2.0 * a);
-            return ("The roots are  x = " + r1 + "\n OR  x = " + r2);
+            return ("The roots are \n  x = " + r1 + "\n OR  x = " + r2);
         } else if (d == 0.0) {
             double r1 = -b / (2.0 * a);
             return ("The root is  x = " + r1);

@@ -49,7 +49,7 @@ public class Solver {
             if (Double.isNaN(d))
                 return "Wrong expression";
             else
-                return ("The solution is " + d);
+                return (eq + " = " + d);
 
         }
 
